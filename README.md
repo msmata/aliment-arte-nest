@@ -32,6 +32,7 @@
 $ yarn install
 ```
 Add DB_URL property in .env file or declare it in your pipeline
+Add node command on /etc/rc.local to execute backend on linux startup
 
 ## Running the app
 
