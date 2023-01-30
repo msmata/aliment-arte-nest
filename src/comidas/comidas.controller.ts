@@ -14,6 +14,6 @@ export class ComidasController {
 
   @Post()
   async createComida(@Body() comidaDTO: CreateComidaDto) {
-    await this.service.createComida(comidaDTO);
+    return await this.service.createComida(comidaDTO);
   }
 }
