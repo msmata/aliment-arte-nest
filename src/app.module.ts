@@ -4,20 +4,20 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ComidasModule } from './comidas/comidas.module';
-import { FechasService } from './fechas/fechas.service';
-import { FechasController } from './fechas/fechas.controller';
-import { MomentosController } from './momentos/momentos.controller';
-import { MomentosService } from './momentos/momentos.service';
 import { RegistrosModule } from './registros/registros.module';
+import { FechasModule } from './fechas/fechas.module';
+import { MomentosModule } from './momentos/momentos.module';
 
 @Module({
   imports: [
-    ComidasModule,
     ConfigModule.forRoot({ isGlobal: true }),
     MongooseModule.forRoot(process.env.DB_URL, { dbName: 'aliment-arte' }),
+    ComidasModule,
     RegistrosModule,
+    FechasModule,
+    MomentosModule,
   ],
-  controllers: [AppController, FechasController, MomentosController],
-  providers: [AppService, FechasService, MomentosService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
